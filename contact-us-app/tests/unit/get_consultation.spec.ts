@@ -1,8 +1,11 @@
 import { test } from '@japa/runner'
 test.group('Get consultations', () => {
   test('Get consultations 200', async ({ client }) => {
-  
-    const token = "Bearer MQ._mJns2WMhSxISYNwrY6RZ1GLckkHgXguDbQlutkP-pNV0Gp8-9Y-qGy01Mdm"
+    const payload = {
+      "username": "admin",
+      "password": "admin"
+    }
+    let token = 'bearer ' + (await client.post('/admin/auth/login').json(payload)).body()["token"]
     const response = await client.get('/admin/consultations').header("Authorization", token)
   
     response.assertStatus(200)

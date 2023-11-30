@@ -1,13 +1,19 @@
 import { test } from '@japa/runner'
+
+import { AdminFactory } from 'Database/factories/Admin'
+
 test.group('Get consultations', () => {
   test('Get consultations 200', async ({ client }) => {
-    const payload = {
-      "username": "admin",
-      "password": "admin"
-    }
-    let token = 'bearer ' + (await client.post('/admin/auth/login').json(payload)).body()["token"]
-    const response = await client.get('/admin/consultations').header("Authorization", token)
-  
+    // const payload = {
+    //   "username": "admin",
+    //   "password": "admin"
+    // }
+    // let token = 'bearer ' + (await client.post('/admin/auth/login').json(payload)).body()["token"]
+    // const response = await client.get('/admin/consultations').header("Authorization", token)
+    
+    const admin = await AdminFactory.create()
+    const response = await client.get('/admin/consultations').loginAs(admin)
+
     response.assertStatus(200)
   })
   

@@ -1,7 +1,7 @@
 
 import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 
-export default class UsersController {
+export default class AdminsController {
     public async login({request, auth }: HttpContextContract) {
         const username = request.input("username");
         const password = request.input("password");

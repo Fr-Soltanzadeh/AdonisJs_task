@@ -6,7 +6,7 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
  *
  * The request continues as usual, even when the user is not logged-in.
  */
-export default class SilentAuthMiddleware {
+export default class SilentAuth {
   /**
    * Handle request
    */

@@ -9,7 +9,7 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
  * You must register this middleware inside `start/kernel.ts` file under the list
  * of named middleware.
  */
-export default class AuthMiddleware {
+export default class Auth {
   /**
    * The URL to redirect to when request is Unauthorized
    */

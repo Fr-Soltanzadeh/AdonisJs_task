@@ -27,4 +27,4 @@ Route.get('/', async () => {
 
 Route.post('/consultations', "ConsultationsController.create")
 Route.post('/admin/auth/login', "AdminsController.login")
-Route.get('/admin/consultations', "ConsultationsController.get").middleware("AuthMiddleware")
+Route.get('/admin/consultations', "ConsultationsController.get").middleware("Auth")
